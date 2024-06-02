@@ -1,0 +1,57 @@
+body {
+    color: #edbb6c;
+    margin-bottom: 60px;
+    margin-top: -80px;
+}
+
+#back {
+    background-color: #d6d5da;
+    border-color: #edbb6c;
+    border-radius: 20px;
+}
+
+#button {
+    background-color: black;
+    border-color: #edbb6c;
+    border-radius: 20px;
+}
+
+#button1 {
+    background-color: black;
+    border-color: #edbb6c;
+    border-radius: 20px;
+    margin-top: 90px;
+}
+
+#historyButton {
+    background-color: black;
+    color: #fff;
+    border-color: #edbb6c;
+    border-radius: 20px;
+    color: white;
+    margin-left: 900px;
+}
+
+.container {
+    background-color: #004f40;
+    padding: 40px;
+    border-radius: 30px;
+    border-width: 50px;
+    margin-top: 85px;
+    margin-bottom: -10px;
+}
+
+h1 {
+    color: #edbb6c;
+    font-size: 30px;
+}
+
+th,
+td {
+    text-align: center;
+}
+
+#totalAmount {
+    font-weight: bold;
+    font-size: 18px;
+}

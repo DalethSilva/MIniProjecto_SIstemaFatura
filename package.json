@@ -1,0 +1,14 @@
+{
+  "name": "sistema_de_faturacao",
+  "version": "1.0.0",
+  "description": "",
+  "main": "loginPage.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Daleth",
+  "license": "ISC",
+  "dependencies": {
+    "mysql": "^2.18.1"
+  }
+}

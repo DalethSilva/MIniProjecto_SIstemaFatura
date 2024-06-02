@@ -1,0 +1,89 @@
+<html>
+                    <head>
+                        <title>Recibo de fatura</title>
+                    <style>
+                        body {
+                            font-family: Arial, sans-serif;
+                            margin: 20px;
+                            background-color: #d6d5da;
+                        }
+                        h1 {
+                            color: #007bff;
+                        }
+                        table {
+                            width: 100%;
+                            border-collapse: collapse;
+                            margin-top: 20px;
+                        }
+                        th, td {
+                            border: 1px solid #dddddd;
+                            text-align: left;
+                            padding: 8px;
+                        }
+                        .total {
+                            font-weight: bold;
+                        }
+                        .invoice-header, .invoice-footer {
+                            text-align: center;
+                        }
+                        .invoice-body {
+                            margin-top: 20px;
+                        }
+                        .invoice-details, .customer-details, .item-details {
+                            width: 100%;
+                            margin-bottom: 20px;
+                        }
+                        .item-details th {
+                            background-color: #f2f2f2;
+                        }
+                    </style>
+                </head>
+                <body>
+                    <div class="invoice-header">
+                        <h2>Recibo de Fatura</h2>
+                        <p>Emitente: Empresa Campos da Silva Ltda</p>
+                        <p>NIF: 123456789</p>
+                        <p>Endereço: Rua Amilcar Cabral, Nº 23, Luanda, Angola</p>
+                    </div>
+                    <div class="invoice-body">
+                        <div class="invoice-details">
+                            <p><strong>Data: </strong> ${invoiceDate}</p>
+                            <p>Nº da Fatura: 2024/0001</p>
+                        </div>
+                        <div class="customer-details">
+                            <p><strong>Nome do(a) cliente: </strong> ${customerName}</p>
+                            <p>NIF: 987654321</p>
+                            <p>Endereço: Avenida Deolinda Rodrigues, Nº 45, Luanda, Angola</p>
+                        </div>
+                        <div class="item-details">
+                            <table>
+                                <thead>
+                                    <tr>
+                                        <th>Descrição</th>
+                                        <th>Quantidade</th>
+                                        <th>Preço Unitário</th>
+                                        <th>IVA</th>
+                                        <th>Total</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    ${items.map((item) => `
+                                        <tr>
+                                            <td>${item.description}</td>
+                                            <td>${item.quantity}</td>
+                                            <td>${item.unitPrice}</td>
+                                            <td>14%</td>
+                                            <td>${item.totalItemPrice}</td>
+                                        </tr>
+                                    `).join("")}
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                    <div class="invoice-footer">
+                        <p><strong>Total a pagar: </strong> ${totalAmount}</p>
+                        <p>Condições de Pagamento: 30 dias</p>
+                        <p>Obrigatório apresentar esta fatura no ato do pagamento.</p>
+                    </div>
+                </body>
+                </html>
