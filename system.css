@@ -16,6 +16,12 @@ body {
     border-radius: 20px;
 }
 
+#productsButton{
+    background-color: black;
+    border-color: #edbb6c;
+    border-radius: 20px;
+}
+
 #button1 {
     background-color: black;
     border-color: #edbb6c;
