@@ -1,18 +1,28 @@
 <?php
-include 'db.php';
+session_start();
+include 'database.php';
 
-if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-    $email = $_POST['email'];
-    $senha = $_POST['senha'];
+try {
+    if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+        $email = $_POST['email'];
+        $senha = $_POST['senha'];
 
-    $stmt = $pdo->prepare("SELECT * FROM administradores WHERE email = ?");
-    $stmt->execute([$email]);
-    $usuario = $stmt->fetch();
+        $stmt = $pdo->prepare("SELECT * FROM administradores WHERE email = :email AND senha = :senha");
+        $stmt->execute(['email' => $email, 'senha' => $senha]);
+        $admin = $stmt->fetch(PDO::FETCH_ASSOC);
 
-    if ($usuario && password_verify($senha, $usuario['senha'])) {
-        header("Location: home.html");
+        if ($admin) {
+            $_SESSION['admin_id'] = $admin['id'];
+            header("Location: home.html");
+            exit;
+        } else {
+            echo "<script>alert('Email ou senha incorretos');</script>";
+            echo "<script>window.location.href = 'loginPage.html';</script>";
+        }
     } else {
-        echo "Email ou senha incorretos";
+        echo "Método de requisição incorreto";
     }
+} catch (Exception $e) {
+    echo 'Erro: ' . $e->getMessage();
 }
 ?>
